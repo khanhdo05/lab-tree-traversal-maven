@@ -2,6 +2,7 @@ package edu.grinnell.csc207.util;
 
 import java.io.PrintWriter;
 import java.util.Iterator;
+import java.util.Stack;
 
 /**
  * Simple binary trees.
@@ -58,6 +59,10 @@ public class BinaryTree<T> implements Iterable<T> {
 
   public void elements01(PrintWriter pen) {
     dump(pen, root);
+  } // elements01(PrintWriter)
+
+  public void elements02(PrintWriter pen) {
+    dump02(pen, root);
   } // elements01(PrintWriter)
 
   /**
@@ -133,6 +138,23 @@ public class BinaryTree<T> implements Iterable<T> {
         dump(pen, node.left);
         dump(pen, node.right);
       } // if has children
+    } // if/else
+  } // dump
+
+  void dump02(PrintWriter pen, BinaryTreeNode<T> node) {
+    if (node == null) {
+      return;
+    } else {
+      if (node.left != null) {
+        dump02(pen, node.left);
+      }
+      if (node.right != null) {
+        pen.print(node.value.toString() + " ");
+        dump02(pen, node.right);
+      }
+      if (node.left == null || node.right == null) {
+        pen.print(node.value.toString() + " ");
+      }
     } // if/else
   } // dump
 

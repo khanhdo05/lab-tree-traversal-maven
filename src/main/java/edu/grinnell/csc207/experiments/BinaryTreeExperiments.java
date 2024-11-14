@@ -29,7 +29,10 @@ public class BinaryTreeExperiments {
 
     pen.println("Elements01");
     tree.elements01(pen);
-    
+
+    pen.println("Elements02");
+    tree.elements02(pen);
+
     pen.close();
   } // main
 } // class BinaryTreeExperiments
