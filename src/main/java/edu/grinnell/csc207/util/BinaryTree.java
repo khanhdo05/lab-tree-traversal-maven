@@ -56,6 +56,10 @@ public class BinaryTree<T> implements Iterable<T> {
   // | Methods |
   // +---------+
 
+  public void elements01(PrintWriter pen) {
+    dump(pen, root);
+  } // elements01(PrintWriter)
+
   /**
    * Dump the tree to some output location.
    *
@@ -110,6 +114,26 @@ public class BinaryTree<T> implements Iterable<T> {
         dump(pen, node.right, indent + "  ");
       } // if has children
     } // else
+  } // dump
+
+    /**
+   * Dump a portion of the tree to some output location.
+   *
+   * @param pen
+   *   Where to dump the output.
+   * @param node
+   *   The node to dump.
+   */
+  void dump(PrintWriter pen, BinaryTreeNode<T> node) {
+    if (node == null) {
+      return;
+    } else {
+      pen.print(node.value.toString() + " ");
+      if ((node.left != null) || (node.right != null)) {
+        dump(pen, node.left);
+        dump(pen, node.right);
+      } // if has children
+    } // if/else
   } // dump
 
   /**
